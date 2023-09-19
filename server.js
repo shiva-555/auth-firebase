@@ -43,7 +43,7 @@ app.post('/signup', async (req, res) => {
       const hashedPassword = await bcrypt.hash(user.password, saltRounds);
   
       // Create a user in MySQL
-      const newUser = await User.create({
+      const newUser = await userModel.create({
         firstName: user.firstname,
         lastName: user.lastname,
         age: user.age,
@@ -69,7 +69,7 @@ app.post('/signup', async (req, res) => {
       
 
 
-      // for login 
+//--------------------------------- for login ----------------------------------------------------------- 
 app.post('/login', async (req, res) => {
     const user = {
         email: req.body.email,
@@ -122,7 +122,7 @@ app.get("/otp", async (req, res) => {
   
 
 
-
+// ----------------------------------------------------------------------------------------------------
 
 const PORT = process.env.PORT || 8080;
 
